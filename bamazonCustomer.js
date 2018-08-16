@@ -25,31 +25,31 @@ connection.connect(function(err) {
   
   display_items();
 
-//   connection.end();
+
 });
 
 function display_items(){
     console.log("Here are all the products available...\n");
     connection.query("SELECT item_id,product_name,price FROM products", function(err, res) {
     if (err) throw err;
-    // Log all results of the SELECT statement
-    console.log('ID'+TAB+'Product'+TAB+TAB+'Price');
+
+    console.log(TAB+'ID'+TAB+'Product'+TAB+TAB+'Price');
     for (var index in res){
         if (res[index].product_name.length > 7){
-            console.log(res[index].item_id+TAB+res[index].product_name+TAB+res[index].price);
+            console.log(TAB+res[index].item_id+TAB+res[index].product_name+TAB+res[index].price);
         }else{
-            console.log(res[index].item_id+TAB+res[index].product_name+TAB+TAB+res[index].price);
+            console.log(TAB+res[index].item_id+TAB+res[index].product_name+TAB+TAB+res[index].price);
         }
         
     }
     console.log('\n');
     buyProduct();
-    // connection.end();
+
   });
 }
 function buyProduct(){
     inquirer.prompt([
-    // Here we create a basic text prompt.
+
     {
         type: "input",
         message: "Please enter the ID of the product you would like to purchase: ",
@@ -72,32 +72,6 @@ function buyProduct(){
         name: "confirm_quantity",
         default: true
     }
-    // // Here we create a basic password-protected text prompt.
-    // {
-    //   type: "password",
-    //   message: "Set your password",
-    //   name: "password"
-    // },
-    // {
-    //   type: "confirm",
-    //   message: "Are you sure:",
-    //   name: "confirm",
-    //   default: true
-    // },
-    // Here we give the user a list to choose from.
-    // {
-    //   type: "list",
-    //   message: "What do you want to do?",
-    //   choices: ["POST AN ITEM", "BID ON AN ITEM"],
-    //   name: "userAction"
-    // },
-    // // Here we ask the user to confirm.
-    // {
-    //   type: "confirm",
-    //   message: "Are you sure:",
-    //   name: "confirm",
-    //   default: true
-    // }
     ])
     .then(function(iRes) {
         product_id = iRes.prod_id;
@@ -114,8 +88,6 @@ function buyProduct(){
         } ,
         function(err, res) {
             if (err) throw err;
-            // Log all results of the SELECT statement
-            // console.log(res[0].stock_quantity);
             if (res[0].stock_quantity >= item_quantity){
                 updateQuantity(res[0].stock_quantity-item_quantity,product_id);
                 console.log('\n'+'The total cost of your purchase is $'+(res[0].price)*item_quantity);
@@ -123,8 +95,6 @@ function buyProduct(){
                 console.log("\n Insufficient quantity!");
                 connection.end();
             }
-            // console.log(err,res);
-            // connection.end();
         });
     })
 }
@@ -145,10 +115,6 @@ function updateQuantity(quant,id){
     ] ,
     function(err, res) {
         if (err) throw err;
-        // Log all results of the SELECT statement
-        // console.log(res[0].stock_quantity);
-        
-        // console.log(err,res);
         connection.end();
     });
 
