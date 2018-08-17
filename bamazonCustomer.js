@@ -32,16 +32,19 @@ function display_items(){
     console.log("Here are all the products available...\n");
     connection.query("SELECT item_id,product_name,price FROM products", function(err, res) {
     if (err) throw err;
-
-    console.log(TAB+'ID'+TAB+'Product'+TAB+TAB+'Price');
+    
+    console.log(TAB+'+---------------+-----------------------+---------------+');
+    console.log(TAB+'|'+TAB+'ID'+TAB+'|'+TAB+'Product'+TAB+TAB+'|'+TAB+'Price'+TAB+'|');
+    console.log(TAB+'+---------------+-----------------------+---------------+');
     for (var index in res){
         if (res[index].product_name.length > 7){
-            console.log(TAB+res[index].item_id+TAB+res[index].product_name+TAB+res[index].price);
+            console.log(TAB+'|'+TAB+res[index].item_id+TAB+'|'+TAB+res[index].product_name+TAB+'|'+TAB+res[index].price+TAB+'|');
         }else{
-            console.log(TAB+res[index].item_id+TAB+res[index].product_name+TAB+TAB+res[index].price);
+            console.log(TAB+'|'+TAB+res[index].item_id+TAB+'|'+TAB+res[index].product_name+TAB+TAB+'|'+TAB+res[index].price+TAB+'|');
         }
         
     }
+    console.log(TAB+'+---------------+-----------------------+---------------+');
     console.log('\n');
     buyProduct();
 
