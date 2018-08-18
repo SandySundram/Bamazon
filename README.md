@@ -11,7 +11,7 @@ Bamazon is an Amazon-like storefront. The app will take in orders from _Customer
 Terminal command: `node bamazonCustomer.js`
 
 * This will display all the available products for sale and their respective prices. It will then prompt the user to enter the _ID_ of the product they wish to purchase.
-Screenshot:    ![View all products](Images\customer_productView.PNG)
+Screenshot:    ![View all products](/Images/customer_productView.PNG)
 
 * After the customer confirms the product to purchase, the app will ask the customer the _quantity_ (of the item) they wish to purchase.
 Screenshot:    ![Prompt for quantiy](Images\customer_quantityView.PNG)
