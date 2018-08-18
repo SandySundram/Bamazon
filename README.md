@@ -14,7 +14,7 @@ Terminal command: `node bamazonCustomer.js`
 Screenshot:    ![View all products](/Images/customer_productView.PNG)
 
 * After the customer confirms the product to purchase, the app will ask the customer the _quantity_ (of the item) they wish to purchase.
-Screenshot:    ![Prompt for quantiy](Images\customer_quantityView.PNG)
+Screenshot:    ![Prompt for quantiy](Images/customer_quantityView.PNG)
 
 * After the customer confirms the quantity needed, the purchase is complete and the total cost of the transaction will be displayed. The inventory for that product will be reduced accordingly.
 Screenshot:    ![Purchase confirmed](Images\customer_purchasedView.PNG)
